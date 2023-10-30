@@ -1,5 +1,5 @@
 const express = require('express');
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 3002;
 const app = express();
 const { ZingMp3 } = require("zingmp3-api-full");
 const bodyParser = require("body-parser");
@@ -69,7 +69,7 @@ app.get('/search', (req, res) => {
             res.json({
                 error:false,
                 message:"Success",
-                data:data.data
+                data:data.data.songs
             });
         });
     } catch (err){
@@ -137,7 +137,7 @@ app.get('/get_new_release',(req,res)=>{
         res.json({
             error:false,
             message:"Success",
-            data:JSON.parse(JSON.stringify(data)).data.items[3].items
+            data:JSON.parse(JSON.stringify(data)).data.items[2].items
         });
     });
 });
@@ -289,7 +289,7 @@ app.get('/get_lyric',(req,res)=>{
             res.json({
                 error:false,
                 message:"Success",
-                data:data.data
+                data:data.data.file
             });
         });
     } catch (error) {
